@@ -1,8 +1,6 @@
 'use strict';
 // jqueryはhtml,css等すべて読み込んだ後に実行するので$()の中にコードを書く
-
-// ヘッダーの絞り込みメニュー ------------------------------------------------
-jQuery(function () {
+$(function () {
 
   let $filters = $('.index [data-category]'),
     $main = $('.main [data-filter]');
@@ -18,8 +16,8 @@ jQuery(function () {
 
     if ($filterColor == 'f_all') { // ←全表示ボタンの動作
       $main.removeClass('is-animated').fadeOut().promise().done(function () {
-        $main.addClass('is-animated').fadeIn();
-      });
+          $main.addClass('is-animated').fadeIn();
+        });
     } else {
       $main.removeClass('is-animated').fadeOut().promise().done(function () {
         $main.filter('[data-filter = "' + $filterColor + '"]').addClass('is-animated').fadeIn();
@@ -30,21 +28,19 @@ jQuery(function () {
 
 
 
-// ページトップへ戻るボタン ------------------------------------------------
-jQuery(function () {
-  $('.top_return').hide();
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) { // 300以上スクロールしたら表示
-      $('.top_return').fadeIn();
-    } else {
-      $('.top_return').fadeOut();
-    }
-  });
-
-  $('.top_return').click(function () {
-    $('body,html').animate({
-      scrollTop: 0
-    }, 600); // 戻る速さ（数が少ないほど速い）
-    return false;
-  });
+// ページトップへ戻るボタン
+$('.top_return').hide();
+ $(window).scroll(function () {
+  if ($(this).scrollTop() > 300) { // 300以上スクロールしたら表示
+   $('.top_return').fadeIn();
+  } else {
+   $('.top_return').fadeOut();
+  }
+});
+ 
+$('.top_return').click(function () {
+ $('body,html').animate({
+  scrollTop: 0
+ }, 600); // 戻る速さ（数が少ないほど速い）
+ return false;
 });
