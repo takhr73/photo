@@ -1,0 +1,148 @@
+/* 全共通　small（スマホ用）*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	position: fixed;
+	margin: 10px;
+}
+
+.logo {
+	width: 70px;
+	margin-bottom: 25px;
+}
+
+.index {
+	color: #555;
+	line-height: 40px;
+}
+
+.category {
+	font-size: 14px;
+	letter-spacing:0.1em;
+}
+
+.category:hover { /* マウスホバー状態 */
+	color:#aba;
+	font-size: 120%;
+	font-weight: bold;
+	transition: font-size 0.2s; /* 指定時間で文字の大きさを変化させる */
+	text-decoration: underline; /* 下線をつける */
+	cursor: pointer;
+}
+
+.main {
+	display: grid;
+	width: 50%; /*グリッド表示の最大幅 */
+  grid-template-columns: repeat(auto-fill, 180px);
+  grid-row-gap: 15px; /* 各グリッドタテ方向のアキ指定 */
+  grid-column-gap: 10px; /* 各グリッド横方向のアキ指定 */
+	grid-auto-rows: 180px; /* 段のグリッド指定範囲外にまで段数増える場合、または段のグリッド数を指定しない場合にタテ指定をする */
+	justify-content: center; /* 子要素を親要素のヨコ方向の中央に揃える */
+	margin: 0 auto; /* main枠を中央寄せ */
+	padding: 10px 0 30px 90px; /* 上下の余白をとりつつ、インデックスの幅分を右に寄せる */
+}
+
+.main a {
+	background: #dee; /* 画像非表示の際の枠表示 */
+	position: relative;
+}
+
+.main p {
+	position: absolute;
+	color: #fff;
+	font-size: 75px;
+	width: 100%;
+	line-height: 180px;
+	text-align: center;
+	opacity: 0.6;
+}
+
+.main img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /*画像を短辺に合わせてトリミング（長辺はカット） */
+}
+
+.is-animated {
+  animation: .6s zoom-in;
+}
+
+footer {
+	display: flex;
+	height: 45px;
+	justify-content: center; /* 親要素内で子要素をヨコ方向の中央に揃える */
+	margin: 0 auto;
+}
+
+.copyright {
+	font-size: 12px;
+	align-self: center;
+}
+
+/*ページトップへ戻るボタン*/
+.top_return {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.top_return a {
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	display: block;
+	background: #555;
+	color: #fff;
+	text-align: center;
+}
+
+
+/* 画像表示のアニメーション（ズームインで表示） */
+@keyframes zoom-in {
+  0% { /* 1/10の大きさで表示開始 */
+		transform: scale(0.1);
+  } 
+  100% { /* 本来の大きさで表示完了 */
+		transform: none;
+  }
+}
+
+
+
+/*　midium（タブレット用）------------------------------------ */
+@media (min-width: 600px) {
+	.logo {
+		width: 85px;
+	}
+
+	.main {
+		width: 75%; /*グリッド表示の最大幅 */
+		grid-template-columns: repeat(auto-fill, 210px);
+		grid-auto-rows: 210px; /* 段のグリッド指定範囲外にまで段数増える場合、または段のグリッド数を指定しない場合にタテ指定をする */
+	}
+	
+	.main p {
+		line-height: 210px;
+	}
+
+	footer {
+		width: 600px;
+	}
+}
+
+
+
+/* large（PC用）------------------------------------ */
+@media (min-width: 1025px) {
+	header {
+		margin: 10px 30px;
+	}
+
+	footer {
+		width: 1000px;
+	}
+}
