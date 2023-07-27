@@ -1,0 +1,186 @@
+/* 全共通　small（スマホ用）*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* ヘッダー（全ページ共通） ---------------------------------- */
+header {
+	position: fixed;
+	z-index: 100; /* ヘッダーを上層に配置して下の画像に隠れないようにする */
+	margin: 10px;
+}
+
+.logo {
+	width: 70px;
+	margin-bottom: 25px;
+}
+
+/* カルーセル（拡大画像）の表示 ---------------------------------- */
+.carousel {
+	position: relative;
+	width: 450px; /*画像部分の最大幅 */
+	justify-content: center; /* 子要素を親要素のヨコ方向の中央に揃える */
+	margin: 0 auto; /* carousel枠を中央寄せ */
+	padding: 80px 0 30px; /* 上下の余白 */
+	/* outline: 2px solid red; */
+}
+
+.main_detail {
+	position: relative;
+	width: 100%;
+	height: 350px;
+	overflow: hidden; /* 枠外の溢れた画像を非表示 */
+}
+
+.main_detail p {
+	position: absolute;
+	color: #fff;
+	font-size: 75px;
+	width: 100%;
+	line-height: 350px;
+	text-align: center;
+	opacity: 0.6;
+}
+
+ul {
+	display: flex;
+	list-style: none;/*リストの黒丸を削除*/
+	height: 100%;
+	transition: transform 0.3s;
+}
+
+li {
+	background: #dee; /* 画像非表示の際の枠表示 */
+	height: 100%;
+	min-width: 100%; /* 画像の最小幅をulと同じ幅に合わせる */
+}
+
+.main_detail img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* 画像を短辺に合わせてトリミング（長辺はカット） */
+}
+
+#prev, #next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%); /* 矢印の高さ半分だけ上にずらして画像の真ん中に矢印を配置する */
+	font-size: 35px;
+	background: #000;
+	color: #999;
+	border: none;
+	opacity: 0.5;
+	padding: 0 6px 3px 9px;
+	cursor: pointer;
+}
+
+#prev {
+	left: 0;
+}
+
+#next {
+	right: 0;
+}
+
+#prev:hover, #next:hover { /* マウスホバー状態 */
+	color: #ccc;
+}
+
+.hidden {
+	display: none; /* 非表示にする */
+}
+
+/* 画像切り替えの丸ボタン ---------------------------------- */
+nav {
+	margin-top: 8px;
+	text-align: center;
+}
+
+/*
+nav button + button { /* 丸ボタンの間にのみ余白をつける場合 
+	margin-left: 8px;
+} */
+
+nav button {
+	width: 16px;
+	height: 16px;
+	background: #ddd;
+	border: none;
+	border-radius: 50%;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+nav .current {
+	background: #aaa;
+}
+
+/* フッター（全ページ共通） ---------------------------------- */
+footer {
+	display: flex;
+	height: 45px;
+	justify-content: center; /* 親要素内で子要素をヨコ方向の中央に揃える */
+	margin: 0 auto;
+}
+
+.copyright {
+	font-size: 12px;
+	align-self: center;
+}
+
+
+
+/*　midium（タブレット用）------------------------------------ */
+@media (min-width: 600px) {
+	header {
+		margin: 30px 10px;
+	}
+
+.logo {
+		width: 85px;
+	}
+
+	.carousel {
+		width: 520px; /*画像部分の最大幅 */
+		padding-top: 120px;
+	}
+
+	.main_detail {
+		height: 400px;
+	}
+
+	.main_detail p {
+		line-height: 400px;
+	}
+	
+	#prev, #next {
+		top: 52%;
+	}
+}
+
+
+
+/* large（PC用）------------------------------------ */
+@media (min-width: 1025px) {
+	header {
+		margin: 30px;
+	}
+
+	.carousel {
+		width: 800px; /*画像部分の最大幅 */
+	}
+
+	.main_detail {
+		height: 550px;
+	}
+
+	.main_detail p {
+		line-height: 550px;
+	}
+
+	#prev, #next {
+		top: 55%;
+	}
+}
